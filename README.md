@@ -1,4 +1,7 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+## API Wilayah Indonesia Pengkodean BPS
+Sumber: 
+- https://sipedas.pertanian.go.id/api/wilayah/index
+- https://sig.bps.go.id/home/sistempengkodean
 
 ## Getting Started
 
@@ -16,21 +19,63 @@ bun dev
 
 Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
 
-You can start editing the page by modifying `app/page.js`. The page auto-updates as you edit the file.
+## Endpoint API
+#### Return seluruh provinsi
 
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
+```http
+  GET /wilayah/provinsi
+```
 
-## Learn More
+#### Return seluruh kab/kota
 
-To learn more about Next.js, take a look at the following resources:
+```http
+  GET /wilayah/kabkot
+```
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+#### Return seluruh kab/kota di suatu provinsi
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
+```http
+  GET /wilayah/kabkot/{prov_id}
+```
 
-## Deploy on Vercel
+#### Return seluruh kecamatan
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+```http
+  GET /wilayah/kecamatan
+```
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+#### Return seluruh kecamatan di suatu provinsi
+
+```http
+  GET /wilayah/kecamatan/{prov_id}
+```
+
+#### Return seluruh kecamatan di suatu provinsi dan kab/kota
+
+```http
+  GET /wilayah/kecamatan/{prov_id}/{kabkot_id}
+```
+
+#### Return seluruh kelurahan/desa
+
+```http
+  GET /wilayah/desa
+```
+
+#### Return seluruh desa di suatu provinsi
+
+```http
+  GET /wilayah/desa/{prov_id}
+```
+
+#### Return seluruh desa di suatu provinsi dan kab/kota
+
+```http
+  GET /wilayah/desa/{prov_id}/{kabkot_id}
+```
+
+#### Return seluruh desa di suatu provinsi, kab/kota, dan kecamatan
+
+```http
+  GET /wilayah/desa/{prov_id}/{kabkot_id}/{kec_id}
+```
